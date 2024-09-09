@@ -1,0 +1,52 @@
+services:
+  react-app-dev:
+    image: mcr.microsoft.com/vscode/devcontainers/typescript-node:18
+    volumes:
+      - .:/workspace:cached
+    command: sleep infinity
+    networks:
+      - microservices
+
+  python-service-dev:
+    image: mcr.microsoft.com/devcontainers/python:3.9
+    volumes:
+      - .:/workspace:cached
+    command: sleep infinity
+    networks:
+      - microservices
+
+  node-service-dev:
+    image: mcr.microsoft.com/vscode/devcontainers/javascript-node:16
+    volumes:
+      - .:/workspace:cached      
+    command: sleep infinity
+    networks:
+      - microservices
+
+  #react-app:
+  #  build: 
+  #    context: ./react-app    
+  #  ports: 
+  #    - 3000:3001
+  #  networks:
+  #    - microservices
+
+  node-service:
+    build: 
+      context: ./node-service    
+    ports: 
+      - 3000:3000
+    networks:
+      - microservices
+
+  python-service:
+    build: 
+      context: ./python-service    
+    ports: 
+      - 8000:8000
+    networks:
+      - microservices
+
+networks:
+  microservices:
+    external: false

@@ -1,0 +1,6 @@
+.idea
+.vscode
+**/data/**
+**/old/**
+**/node_modules/
+**/.next/

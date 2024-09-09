@@ -1,0 +1,10 @@
+{
+	"name": "Node Container",
+	"dockerComposeFile": [
+		"../../docker-compose.yml",
+		//"docker-compose.node.dev.yml"		
+	],
+	"service": "node-service-dev",
+	"shutdownAction": "none",
+	"workspaceFolder": "/workspace/node-service"
+}
